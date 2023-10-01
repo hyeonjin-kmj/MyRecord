@@ -1,0 +1,132 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".school.school_add_lecture">
+
+    <Button
+        android:id="@+id/btn_cancel_add_lecture"
+        android:layout_width="wrap_content" android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:backgroundTint="@color/transparent"
+        android:text="X" android:textSize="20sp" android:textColor="@color/main"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"/>
+
+    <Button
+        android:id="@+id/btn_done_add_lecture"
+        android:layout_width="72dp" android:layout_height="wrap_content"
+        android:layout_marginEnd="20dp"
+        android:backgroundTint="@color/main"
+        android:text="완료" android:textSize="12sp" android:textStyle="bold"
+
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/btn_cancel_add_lecture"/>
+
+    <com.github.tlaabs.timetableview.TimetableView
+        android:id="@+id/time_table"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:cell_height="24dp"
+        app:column_count="6"
+        app:header_title="@array/my_header_title"
+        app:row_count="12"
+        app:sticker_colors="@array/default_sticker_color"
+        app:layout_constraintTop_toBottomOf="@id/btn_done_add_lecture"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"/>
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        app:layout_constraintTop_toBottomOf="@id/time_table"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent">
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+            <EditText
+                android:id="@+id/lecture"
+                android:layout_width="wrap_content" android:layout_height="wrap_content"
+                android:layout_marginStart="20dp" android:layout_marginTop="20dp" android:minHeight="48dp"
+                android:backgroundTint="@color/main"
+                android:inputType="text" android:ems="10"
+                android:hint="강의명"
+
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintStart_toStartOf="parent"/>
+            <EditText
+                android:id="@+id/professor"
+                android:layout_width="wrap_content" android:layout_height="wrap_content"
+                android:layout_marginTop="20dp" android:minHeight="48dp"
+                android:backgroundTint="@color/main"
+                android:inputType="text" android:ems="10"
+                android:hint="교수님 성함"
+                app:layout_constraintTop_toBottomOf="@+id/lecture"
+                app:layout_constraintStart_toStartOf="@id/lecture"/>
+
+            <include
+                android:id="@+id/add_time_room1"
+                layout="@layout/school_time_room"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:layout_constraintTop_toBottomOf="@id/professor"
+                app:layout_constraintStart_toStartOf="@id/professor" />
+
+            <include
+                android:id="@+id/add_time_room2"
+                layout="@layout/school_time_room"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:layout_constraintTop_toBottomOf="@id/add_time_room1"
+                app:layout_constraintStart_toStartOf="@id/add_time_room1"
+
+                android:visibility="gone"/>
+
+            <include
+                android:id="@+id/add_time_room3"
+                layout="@layout/school_time_room"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:layout_constraintTop_toBottomOf="@id/add_time_room2"
+                app:layout_constraintStart_toStartOf="@id/add_time_room2"
+
+                android:visibility="gone"/>
+
+            <Button
+                android:id="@+id/btn_add_time_room"
+                android:layout_width="wrap_content" android:layout_height="wrap_content"
+                android:background="@color/transparent"
+                android:text="시간 및 장소 추가 (최대 3개)" android:textColor="@color/main"
+
+                app:layout_constraintTop_toBottomOf="@id/add_time_room3"
+                app:layout_constraintStart_toStartOf="@id/add_time_room1"/>
+
+            <ImageButton
+                android:id="@+id/btn_add_new_lecture"
+                android:layout_width = "50dp" android:layout_height="50dp"
+                android:layout_marginEnd="20dp"
+                android:gravity="center"
+                android:src="@drawable/add"
+                android:background="@color/transparent"
+                app:layout_constraintTop_toTopOf="@id/lecture"
+                app:layout_constraintEnd_toEndOf="parent"
+                android:contentDescription="새 강의 추가"/>
+
+            <CheckBox
+                android:id="@+id/cb_copy_place"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="강의 장소 복사"
+                app:layout_constraintTop_toTopOf="@id/add_time_room1"
+                app:layout_constraintStart_toEndOf="@id/add_time_room1"
+                android:layout_marginTop="50dp"/>
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </ScrollView>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

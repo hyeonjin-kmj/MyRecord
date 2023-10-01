@@ -1,0 +1,161 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView
+    android:id="@+id/main_layout"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".calendar.MainActivity">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <!--칩 목록, 칩 편집 -->
+        <LinearLayout
+            android:id="@+id/chipList"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent">
+
+            <!--        <HorizontalScrollView-->
+            <!--            android:layout_width="360dp"-->
+            <!--            android:layout_height="wrap_content">-->
+
+            <!--            <com.google.android.material.chip.ChipGroup-->
+            <!--                android:layout_width="wrap_content"-->
+            <!--                android:layout_height="wrap_content">-->
+            <!--                <com.google.android.material.chip.Chip-->
+            <!--                    android:layout_marginStart="10dp"-->
+            <!--                    android:id="@+id/lecture"-->
+            <!--                    android:layout_width="wrap_content"-->
+            <!--                    android:layout_height="wrap_content"-->
+            <!--                    android:text="수업"-->
+            <!--                    android:backgroundTint="@color/chip1"/>-->
+
+            <!--                <com.google.android.material.chip.Chip-->
+            <!--                    android:layout_marginStart="10dp"-->
+            <!--                    android:id="@+id/project"-->
+            <!--                    android:layout_width="wrap_content"-->
+            <!--                    android:layout_height="wrap_content"-->
+            <!--                    android:text="과제"-->
+            <!--                    android:backgroundTint="@color/chip2"/>-->
+
+            <!--                <com.google.android.material.chip.Chip-->
+            <!--                    android:layout_marginStart="10dp"-->
+            <!--                    android:id="@+id/hang_out"-->
+            <!--                    android:layout_width="wrap_content"-->
+            <!--                    android:layout_height="wrap_content"-->
+            <!--                    android:text="약속"-->
+            <!--                    android:backgroundTint="@color/chip3"/>-->
+
+            <!--                <com.google.android.material.chip.Chip-->
+            <!--                    android:layout_marginStart="10dp"-->
+            <!--                    android:id="@+id/part_time"-->
+            <!--                    android:layout_width="wrap_content"-->
+            <!--                    android:layout_height="wrap_content"-->
+            <!--                    android:text="알바"-->
+            <!--                    android:backgroundTint="@color/chip4"/>-->
+            <!--            </com.google.android.material.chip.ChipGroup>-->
+            <!--        </HorizontalScrollView>-->
+
+            <!--        <ImageButton-->
+            <!--            android:id="@+id/re_list"-->
+            <!--            android:layout_width="match_parent"-->
+            <!--            android:layout_height="match_parent"-->
+            <!--            android:background="#00ff0000"-->
+            <!--            android:scaleType="fitCenter"-->
+            <!--            android:padding="10dp"-->
+            <!--            android:contentDescription="add chip"-->
+            <!--            android:src="@drawable/arrange"/>-->
+        </LinearLayout>
+
+        <CalendarView
+            android:id="@+id/calendar"
+            android:layout_width="match_parent"
+            android:layout_height="300dp"
+            app:layout_constraintTop_toBottomOf="@id/chipList"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"/>
+
+        <TextView
+            android:id="@+id/now_date"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="76dp"
+            android:paddingStart="10dp"
+            android:textSize="20dp"
+            android:textStyle="bold"
+
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="1.0"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/calendar"
+            tools:text="2023년 5월 23일 (화)" />
+
+        <com.google.android.material.floatingactionbutton.FloatingActionButton
+            android:id="@+id/timer"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:backgroundTint="@color/mainPale"
+            android:clickable="true"
+            android:contentDescription="공부타이머"
+            android:layout_marginEnd="20dp"
+            app:srcCompat="@android:drawable/ic_lock_idle_alarm"
+            app:layout_constraintTop_toBottomOf="@id/calendar"
+            app:layout_constraintEnd_toEndOf="parent"/>
+
+        <com.google.android.material.floatingactionbutton.FloatingActionButton
+            android:id="@+id/diary"
+            android:visibility="invisible"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:backgroundTint="@color/mainPale"
+            android:clickable="true"
+            android:contentDescription="일기쓰러가기"
+            android:layout_gravity="end"
+            android:layout_marginEnd="20dp"
+            app:srcCompat="@drawable/pencil"
+            app:layout_constraintTop_toBottomOf="@id/calendar"
+            app:layout_constraintEnd_toStartOf="@id/timer" />
+
+        <LinearLayout
+            android:id="@+id/mode_todo"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            app:layout_constraintTop_toBottomOf="@id/now_date"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            android:visibility="visible">
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/recyclerview_todo"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" />
+
+            <android.widget.Button
+                android:id="@+id/add_new_todo"
+                style="@style/item"
+                android:textSize="18dp"
+                android:text="+ 새로운 이벤트"/>
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/mode_diary"
+            android:layout_width="300dp"
+            android:layout_height="wrap_content"
+            app:layout_constraintTop_toBottomOf="@id/now_date"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            android:visibility="invisible"
+            android:paddingBottom="20dp">
+            <include layout="@layout/diary"/>
+        </LinearLayout>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</ScrollView>

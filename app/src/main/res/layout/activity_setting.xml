@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".setting.Setting"
+    android:orientation="vertical"
+    android:padding="16dp">
+
+    <TextView
+        android:id="@+id/title_setting"
+        android:layout_width="wrap_content" android:layout_height="wrap_content"
+        android:paddingBottom="20dp"
+        android:text="환경설정" android:textSize="30dp" android:textStyle="bold"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"/>
+
+    <de.hdodenhof.circleimageview.CircleImageView
+        android:id="@+id/profile_image"
+        android:layout_width="80dp" android:layout_height="80dp"
+        android:src="@drawable/suzi_wink"
+        app:layout_constraintTop_toBottomOf="@id/title_setting"
+        app:layout_constraintStart_toStartOf="@id/title_setting"/>
+
+    <TextView
+        android:id="@+id/name"
+        android:layout_width="wrap_content" android:layout_height="48dp"
+        android:layout_marginStart="20dp"
+        android:gravity="center_vertical"
+        tools:text="이름" android:textSize="25dp"
+        app:layout_constraintTop_toTopOf="@id/profile_image"
+        app:layout_constraintStart_toEndOf="@id/profile_image"/>
+
+    <Button
+        android:id="@+id/btn_edit_profile"
+        android:layout_width="wrap_content" android:layout_height="wrap_content"
+        android:background="@color/transparent"
+        android:gravity="bottom|end|center_horizontal"
+        android:text="Edit" android:textColor="@color/mainPale"
+        android:visibility="visible"
+        app:layout_constraintBottom_toBottomOf="@id/profile_image"
+        app:layout_constraintEnd_toEndOf="parent"/>
+
+<!--    <CheckBox-->
+<!--        android:id="@+id/ch_weather"-->
+<!--        android:layout_marginTop="5dp"-->
+<!--        android:paddingStart="20dp"-->
+<!--        android:layout_width="match_parent"-->
+<!--        android:layout_height="wrap_content"-->
+<!--        android:text="기상 시 날씨+옷 추천 알람 받기"-->
+<!--        android:gravity="start|center_vertical"-->
+<!--        android:background="@drawable/cell"-->
+<!--        app:layout_constraintTop_toBottomOf="@id/weatherInform"/>-->
+<!--    <androidx.appcompat.widget.AppCompatButton-->
+<!--        android:layout_width="wrap_content"-->
+<!--        android:layout_height="wrap_content"-->
+<!--        android:background="@color/transparent"-->
+<!--        android:text="회원 탈퇴하기"-->
+<!--        android:textColor="@color/mainPale"/>-->
+
+</androidx.constraintlayout.widget.ConstraintLayout>

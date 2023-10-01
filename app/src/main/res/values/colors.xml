@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="black">#FF000000</color>
+    <color name="white">#FFFFFFFF</color>
+    <color name="gray">#AEAEAE</color>
+    <color name="main">#FF772D</color>
+    <color name="mainPale">#FFAD80</color>
+    <color name="mainBackground">#FFE6D8</color>
+    <color name="transparent">#00ff0000</color>
+    <color name="light_gray">#CCCCCC</color>
+
+    <color name="chip1">#FBA8A8</color>
+    <color name="chip2">#FFBA95</color>
+    <color name="chip3">#FFE595</color>
+    <color name="chip4">#C6FF95</color>
+    <color name="chip5">#95EAFF</color>
+    <color name="chip6">#9995FF</color>
+    <color name="chip7">#CE95FF</color>
+    <color name="chip8">#FF95ED</color>
+</resources>

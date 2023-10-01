@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".setting.setting_edit_profile"
+    android:gravity="center_horizontal"
+    android:orientation="vertical"
+    android:paddingTop="50dp">
+
+    <de.hdodenhof.circleimageview.CircleImageView
+    android:id="@+id/profile_image"
+    android:layout_width="120dp"
+    android:layout_height="120dp"
+    android:src="@drawable/suzi_wink"/>
+    <Button
+        android:id="@+id/btn_change_profile_image"
+        android:layout_width="wrap_content" android:layout_height="wrap_content"
+        android:text="프로필 이미지 변경"
+        android:textSize="18dp" android:textColor="@color/mainPale" android:textStyle="bold"
+        android:background="@color/transparent"/>
+
+    <EditText
+        android:id="@+id/name"
+        android:layout_width="300dp" android:layout_height="48dp"
+        android:hint="새로 설정할 이름"
+        android:text="현재 이름" android:inputType="text"
+        android:layout_marginBottom="10dp"/>
+
+    <EditText
+        android:id="@+id/ID"
+        android:layout_width="300dp" android:layout_height="48dp"
+        android:hint="새 ID"
+        android:text="현재 ID" android:inputType="text"
+        android:layout_marginBottom="10dp"/>
+
+    <EditText
+        android:id="@+id/PW"
+        android:layout_width="300dp" android:layout_height="48dp"
+        android:layout_marginTop="20dp"
+        android:hint="비밀번호"  android:inputType="textVisiblePassword"
+        android:layout_marginBottom="10dp"/>
+
+    <EditText
+        android:id="@+id/PW_check"
+        android:layout_width="300dp" android:layout_height="48dp"
+        android:hint="한 번 더 입력해주세요. " android:inputType="textVisiblePassword"/>
+    <TextView
+        android:id="@+id/pw_again"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="다시 입력해주세요."
+        android:textColor="@color/main"
+        android:visibility="invisible"/>
+    <Button
+        android:id="@+id/btn_done_edit_profile"
+        android:layout_width="match_parent" android:layout_height="48dp"
+        android:layout_marginTop="30dp" android:layout_marginStart="30dp" android:layout_marginEnd="30dp"
+        android:text="완료"
+        android:backgroundTint="@color/mainPale"/>
+    <Button
+        android:id="@+id/btn_log_out"
+        android:layout_width="wrap_content" android:layout_height="48dp"
+        tools:text="로그아웃"
+        android:layout_gravity=""
+        android:textSize="18dp" android:textColor="@color/mainPale" android:textStyle="bold"
+        android:background="@color/transparent"/>
+    <Button
+        android:id="@+id/btn_leave"
+        android:layout_width="wrap_content" android:layout_height="48dp"
+        tools:text="회원탈퇴"
+        android:textSize="16dp" android:textColor="#D5D5D5" android:textStyle="bold"
+        android:background="@color/transparent"/>
+
+</LinearLayout>

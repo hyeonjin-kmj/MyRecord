@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <group android:checkableBehavior="single">
+
+        <item android:id="@+id/nav_calendar"
+            android:icon="@drawable/calendar"
+            android:title="일정관리"/>
+
+        <item android:id="@+id/nav_diary"
+            android:icon="@drawable/diary"
+            android:title="일기"/>
+
+        <item android:id="@+id/nav_school"
+            android:icon="@drawable/school"
+            android:title="강의 시간표"/>
+
+        <item android:id="@+id/nav_setting"
+            android:icon="@drawable/setting"
+            android:title="설정"/>
+    </group>
+</menu>

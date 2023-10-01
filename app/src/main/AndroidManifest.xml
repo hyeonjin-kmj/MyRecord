@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <uses-sdk android:minSdkVersion="26" />
+
+    <uses-permission android:name="android.permission.RECORD_AUDIO" />
+    <uses-permission
+        android:name="android.permission.READ_EXTERNAL_STORAGE"
+        android:maxSdkVersion="28" />
+    <uses-permission android:name="android.permission.READ_MEDIA_IMAGES" />
+
+    <application
+        android:name=".diary.MyDiary"
+        android:allowBackup="true"
+        android:appCategory="productivity"
+        android:dataExtractionRules="@xml/data_extraction_rules"
+        android:fullBackupContent="@xml/backup_rules"
+        android:icon="@drawable/icon"
+        android:label="MyRecord"
+        android:requestLegacyExternalStorage="true"
+        android:resizeableActivity="false"
+        android:roundIcon="@drawable/icon"
+        android:supportsRtl="false"
+        android:theme="@style/Theme.Piece1timer"
+        android:usesCleartextTraffic="true"
+        tools:targetApi="31"
+        android:largeHeap="true">
+        <activity
+            android:name=".setting.setting_edit_profile"
+            android:exported="false" />
+        <activity
+            android:name=".setting.splash"
+            android:exported="true">
+        <intent-filter>
+            <action android:name="android.intent.action.MAIN" />
+            <category android:name="android.intent.category.LAUNCHER" />
+        </intent-filter>
+        </activity>
+        <activity
+            android:name=".setting.login"
+            android:exported="false"
+            android:windowSoftInputMode="adjustResize"/>
+        <activity
+            android:name=".school.school_add_lecture"
+            android:exported="false"
+            android:windowSoftInputMode="adjustPan"/>
+        <!-- calendar -->
+        <activity
+            android:name=".calendar.MainActivity"
+            android:exported="true"/>
+        <!-- timer -->
+        <activity
+            android:name=".timer.timer"
+            android:configChanges="orientation|screenSize"
+            android:exported="false"
+            android:launchMode="singleTop" /> <!-- 타이머는 데이터 그대로 유지하려고 singleTop으로 -->
+        <activity
+            android:name=".timer.focusTimer"
+            android:configChanges="orientation|screenSize"
+            android:exported="false"
+            android:launchMode="singleTop" /> <!-- 다이어리 -->
+        <activity
+            android:name=".diary.MainDiary"
+            android:exported="false"
+            android:launchMode="singleTop"
+            android:windowSoftInputMode="" />
+        <activity
+            android:name=".diary.diary_write"
+            android:autoRemoveFromRecents="true"
+            android:exported="false"
+            android:parentActivityName=".diary.MainDiary"
+            android:taskAffinity=".WriteDiary"
+            android:windowSoftInputMode="adjustResize|stateAlwaysVisible">
+            <intent-filter>
+                <action android:name="android.intent.action.PICK" />
+
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name=".diary.diary_list"
+            android:exported="false"
+            android:launchMode="singleTop"
+            android:parentActivityName=".diary.MainDiary" /> <!-- school -->
+        <activity
+            android:name=".school.SchoolMain"
+            android:exported="false"
+            android:windowSoftInputMode="adjustPan"
+            android:launchMode="singleTop"/> <!-- settings -->
+        <activity
+            android:name=".setting.Setting"
+            android:exported="false"
+            android:launchMode="singleTop"/> <!-- Drawer -->
+        <activity
+            android:name=".DrawerBaseActivity"
+            android:exported="false" />
+    </application>
+
+</manifest>

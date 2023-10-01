@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    tools:context=".diary.diary_quit_writing">
+
+    <TextView
+        android:layout_width="267dp"
+        android:layout_height="99dp"
+        android:fontFamily="@font/gyuris_handwriting"
+        android:gravity="center_horizontal"
+        android:text="지금 나가면 쓴/수정한 내용이 \n저장되지 않아요. \n정말 나가시겠습니까?"
+        android:textSize="20dp"
+        android:paddingTop="20dp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        android:background="#FFC2A1"/>
+
+    <ImageButton
+        android:id="@+id/btn_yes"
+        android:layout_width="49dp"
+        android:layout_height="50dp"
+        android:backgroundTint="@color/transparent"
+        android:scaleType="fitCenter"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/btn_no"
+        app:srcCompat="@drawable/check"
+
+        tools:ignore="SpeakableTextPresentCheck" />
+
+    <ImageButton
+        android:id="@+id/btn_no"
+        android:layout_width="wrap_content"
+        android:layout_height="48dp"
+        android:backgroundTint="@color/transparent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:srcCompat="@drawable/cancel"
+        tools:ignore="SpeakableTextPresentCheck" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>
