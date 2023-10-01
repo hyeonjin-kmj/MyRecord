@@ -60,6 +60,7 @@ public class login extends AppCompatActivity {
         User 수현 = new User("abcd", "", "수현", );
         User 민정 = new User("abced", "", "민정", );
         User 은별 = new User("abcedf", "", "은별", );
+        //샘플 생성 중
 
         editorU.apply();
 
