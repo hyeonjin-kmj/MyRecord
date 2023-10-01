@@ -17,6 +17,7 @@ import com.example.piece1timer.R;
 import com.example.piece1timer.calendar.MainActivity;
 import com.example.piece1timer.diary.MyDiary;
 import com.example.piece1timer.school.User;
+import com.github.tlaabs.timetableview.TimetableView;
 import com.google.android.material.textfield.TextInputEditText;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
@@ -54,14 +55,6 @@ public class login extends AppCompatActivity {
 //        editorU.putString(user.getID(), gson.toJson(user));
 
         ArrayList<User> friends_sample = new ArrayList<>();
-        User 혜준 = new User("a", "", "혜준", );
-        User 유진 = new User("ab", "", "유진", );
-        User 서영 = new User("abc", "", "서영", );
-        User 수현 = new User("abcd", "", "수현", );
-        User 민정 = new User("abced", "", "민정", );
-        User 은별 = new User("abcedf", "", "은별", );
-        //샘플 생성 중
-
         editorU.apply();
 
         btn_login.setOnClickListener(new View.OnClickListener() {

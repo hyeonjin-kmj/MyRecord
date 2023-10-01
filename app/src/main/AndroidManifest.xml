@@ -18,38 +18,40 @@
         android:fullBackupContent="@xml/backup_rules"
         android:icon="@drawable/icon"
         android:label="MyRecord"
+        android:largeHeap="true"
         android:requestLegacyExternalStorage="true"
         android:resizeableActivity="false"
         android:roundIcon="@drawable/icon"
         android:supportsRtl="false"
         android:theme="@style/Theme.Piece1timer"
         android:usesCleartextTraffic="true"
-        tools:targetApi="31"
-        android:largeHeap="true">
+        tools:targetApi="31">
+        <activity
+            android:name=".setting.temp"
+            android:exported="false" />
         <activity
             android:name=".setting.setting_edit_profile"
             android:exported="false" />
         <activity
             android:name=".setting.splash"
             android:exported="true">
-        <intent-filter>
-            <action android:name="android.intent.action.MAIN" />
-            <category android:name="android.intent.category.LAUNCHER" />
-        </intent-filter>
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
         </activity>
         <activity
             android:name=".setting.login"
             android:exported="false"
-            android:windowSoftInputMode="adjustResize"/>
+            android:windowSoftInputMode="adjustResize" />
         <activity
             android:name=".school.school_add_lecture"
             android:exported="false"
-            android:windowSoftInputMode="adjustPan"/>
-        <!-- calendar -->
+            android:windowSoftInputMode="adjustPan" /> <!-- calendar -->
         <activity
             android:name=".calendar.MainActivity"
-            android:exported="true"/>
-        <!-- timer -->
+            android:exported="true" /> <!-- timer -->
         <activity
             android:name=".timer.timer"
             android:configChanges="orientation|screenSize"
@@ -86,12 +88,12 @@
         <activity
             android:name=".school.SchoolMain"
             android:exported="false"
-            android:windowSoftInputMode="adjustPan"
-            android:launchMode="singleTop"/> <!-- settings -->
+            android:launchMode="singleTop"
+            android:windowSoftInputMode="adjustPan" /> <!-- settings -->
         <activity
             android:name=".setting.Setting"
             android:exported="false"
-            android:launchMode="singleTop"/> <!-- Drawer -->
+            android:launchMode="singleTop" /> <!-- Drawer -->
         <activity
             android:name=".DrawerBaseActivity"
             android:exported="false" />
