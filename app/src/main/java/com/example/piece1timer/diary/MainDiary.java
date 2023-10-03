@@ -14,6 +14,7 @@ import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
+import android.view.WindowManager;
 import android.widget.DatePicker;
 
 import com.example.piece1timer.DrawerBaseActivity;
@@ -59,6 +60,7 @@ public class MainDiary extends DrawerBaseActivity {
         activityMainDiaryBinding = ActivityMainDiaryBinding.inflate(getLayoutInflater());
         setContentView(activityMainDiaryBinding.getRoot());
         allocateActivityTitle("일기");
+        getWindow().addFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN);
 
         //(일기 대표 이모지용)
         rRecyclerView = findViewById(R.id.recyclerview_written);

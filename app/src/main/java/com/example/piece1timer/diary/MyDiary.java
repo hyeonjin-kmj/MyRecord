@@ -32,8 +32,7 @@ public class MyDiary extends Application {
     public static SharedPreferences DBtodo, DBdiary, DBemotion;
     public static SharedPreferences.Editor editorT, editorD, editorE;
     public static SharedPreferences.OnSharedPreferenceChangeListener listenerD;
-    static Gson gson2 = new GsonBuilder().registerTypeAdapter(RecyclerItemDiary.class, new MyTypeAdapter<RecyclerItemDiary>()).create();;
-    static Gson gson = new GsonBuilder().create();
+    static Gson gson2 = new GsonBuilder().registerTypeAdapter(RecyclerItemDiary.class, new MyTypeAdapter<RecyclerItemDiary>()).create();
 
     public static User 현재유저;
     @Override

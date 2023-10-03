@@ -23,6 +23,7 @@ import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 
 import java.util.ArrayList;
+import java.util.Map;
 
 public class login extends AppCompatActivity {
     TextInputEditText input_id, input_pw;
@@ -49,14 +50,6 @@ public class login extends AppCompatActivity {
 
         gson = new GsonBuilder().create();
 
-        //샘플 세팅
-        editorU.clear();
-//        User user = new User("aaa123", "12345", "현진");
-//        editorU.putString(user.getID(), gson.toJson(user));
-
-        ArrayList<User> friends_sample = new ArrayList<>();
-        editorU.apply();
-
         btn_login.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -73,9 +66,21 @@ public class login extends AppCompatActivity {
         });
     }
     public boolean login_succeed(String got_ID, String got_PW) {
-        User user = gson.fromJson(DBuser.getString(got_ID, null), User.class);
-        MyDiary.현재유저 = user;
-        return DBuser.contains(got_ID) && user.getPW().equals(got_PW);
+        if (got_ID==null&&got_PW==null) return false;//입력이 안 들어왔을 때
+
+        Map<String, ?> all_users = DBuser.getAll();
+        User user;
+        for (String key : all_users.keySet()){
+            user = new User(DBuser.getString(key, "없음 메롱"));
+
+            if (user.getID()==null) continue;
+            if (user.getID().equals(got_ID)&&user.getPW().equals(got_PW)) {
+                MyDiary.현재유저 = user;
+                //Log.i("보기", "로그인 성공 : "+MyDiary.현재유저.getName()+", "+MyDiary.현재유저.getFriend_unqs().toString());
+                return true;
+            }
+        }
+        return false;
     }
 
     @Override

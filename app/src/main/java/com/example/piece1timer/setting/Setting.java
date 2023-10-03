@@ -3,8 +3,6 @@ package com.example.piece1timer.setting;
 import android.app.Activity;
 import android.content.Intent;
 import android.content.SharedPreferences;
-import android.graphics.drawable.ShapeDrawable;
-import android.graphics.drawable.shapes.OvalShape;
 import android.net.Uri;
 import android.os.Bundle;
 import android.util.Log;
@@ -15,12 +13,12 @@ import android.widget.ImageView;
 import com.example.piece1timer.DrawerBaseActivity;
 import com.example.piece1timer.databinding.ActivitySettingBinding;
 import com.example.piece1timer.diary.MyDiary;
+import com.example.piece1timer.school.User;
 
 public class Setting extends DrawerBaseActivity {
 
     ActivitySettingBinding activitySettingBinding;
     SharedPreferences DBuser;
-    SharedPreferences.OnSharedPreferenceChangeListener listener;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -31,13 +29,6 @@ public class Setting extends DrawerBaseActivity {
         getWindow().addFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN);
 
         DBuser = getSharedPreferences("DBuser", MODE_PRIVATE);
-        listener = new SharedPreferences.OnSharedPreferenceChangeListener() {
-            @Override
-            public void onSharedPreferenceChanged(SharedPreferences sharedPreferences, String key) {
-                setInform();
-            }
-        };
-        DBuser.registerOnSharedPreferenceChangeListener(listener);
 
 
         activitySettingBinding.btnEditProfile.setOnClickListener(new View.OnClickListener() {
@@ -51,7 +42,37 @@ public class Setting extends DrawerBaseActivity {
     }
 
     public void setInform(){
-        if (MyDiary.현재유저.getUri()!=null) activitySettingBinding.profileImage.setImageURI(Uri.parse(MyDiary.현재유저.getUri()));
+        if (MyDiary.현재유저.getUri()!=null) {
+            Log.i("보기", "uri가 눌이니? "+MyDiary.현재유저.getUri());
+            activitySettingBinding.profileImage.setImageURI(Uri.parse(MyDiary.현재유저.getUri()));
+        }
         activitySettingBinding.name.setText(MyDiary.현재유저.getName());
     }
+
+    @Override
+    protected void onStart() {
+        super.onStart();
+        Log.i("보기", "onStart");
+        MyDiary.현재유저 = new User(DBuser.getString(MyDiary.현재유저.getUnique_num()+"", "없음 메롱"));
+        setInform();
+    }
+
+    @Override
+    protected void onResume(){
+        super.onResume();
+        Log.i("보기", "onResume");
+    }
+
+    @Override
+    protected void onPause(){
+        super.onPause();
+        Log.i("보기", "onPause");
+    }
+
+    @Override
+    protected void onStop(){
+        super.onStop();
+        Log.i("보기", "onStop");
+    }
+
 }

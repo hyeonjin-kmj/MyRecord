@@ -33,7 +33,6 @@ import com.google.gson.GsonBuilder;
 public class setting_edit_profile extends AppCompatActivity {
     SharedPreferences DBuser;
     SharedPreferences.Editor editorU;
-    Gson gson;
 
     Button btn_change_profile_image, btn_logout, btn_leave, btn_done_edit_profile;
     ImageView profile_image;
@@ -53,7 +52,6 @@ public class setting_edit_profile extends AppCompatActivity {
 
         DBuser = getSharedPreferences("DBuser", Activity.MODE_PRIVATE);
         editorU = DBuser.edit();
-        gson = new GsonBuilder().create();
 
         intent_out = new Intent(this, login.class);
 
@@ -74,7 +72,6 @@ public class setting_edit_profile extends AppCompatActivity {
 
                     if(result.getResultCode() == RESULT_OK) {
                         Intent intent_pic = result.getData();
-                        Log.i("보기", String.valueOf(intent_pic.getData()));
                         uri = intent_pic != null ? String.valueOf(intent_pic.getData()) : null;
                         getContentResolver().takePersistableUriPermission(Uri.parse(uri), Intent.FLAG_GRANT_READ_URI_PERMISSION);
                         profile_image.setImageURI(Uri.parse(uri));
@@ -103,14 +100,14 @@ public class setting_edit_profile extends AppCompatActivity {
                     pw_again.setVisibility(View.VISIBLE);
                 }
                 else {
-                    if (!id.getText().toString().equals(MyDiary.현재유저.getID())) editorU.remove(MyDiary.현재유저.getID());
                     //text 내용 저장
                     if (!MyDiary.현재유저.getID().equals(id.getText().toString())) MyDiary.현재유저.setID(id.getText().toString());
                     if (!pw.getText().toString().isEmpty()) MyDiary.현재유저.setPW(pw.getText().toString());
                     if (!MyDiary.현재유저.getName().equals(name.getText().toString())) MyDiary.현재유저.setName(name.getText().toString());
-                    if (!MyDiary.현재유저.getUri().equals(uri)&&uri!=null) MyDiary.현재유저.setUri(uri);
+                    if (uri!=null) MyDiary.현재유저.setUri(uri);
 
-                    editorU.putString(MyDiary.현재유저.getID(), gson.toJson(MyDiary.현재유저));
+                    editorU.putString(MyDiary.현재유저.getUnique_num()+"", MyDiary.현재유저.toJson());
+                    Log.i("보기", "편집한 user = "+MyDiary.현재유저.toJson());
                     editorU.apply();
                     finish();
                 }
